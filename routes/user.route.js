@@ -94,8 +94,15 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-router.put("/wallet", (req, res) => {
-    
+router.put("/wallet/increase", (req, res) => {
+    controller.walletIncrease( req.user.id, req.body.amount )
+    .then( (currentWallet) => {
+        res.status( 200 ).send( currentWallet );
+    })
+    .catch( (error) => {
+        console.error( error );
+        res.status( error.status ? error.status: 500 ).json( error );
+    });
 });
 
 
