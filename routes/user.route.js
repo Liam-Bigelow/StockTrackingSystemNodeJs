@@ -94,6 +94,7 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+// increase user wallet value
 router.put("/wallet/increase", (req, res) => {
     controller.walletIncrease( req.user.id, req.body.amount )
     .then( (currentWallet) => {
