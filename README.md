@@ -1,6 +1,21 @@
 # StockTrackingSystemNodeJs
 This is a backend application for a stock market tracking system where user’s can trade stocks or shares written in node.js
 
+_Note: this is currently unfinished. The only testable code is login/logout_
+
+### TASKS TO SOLVE
+* Your system should have support for users to login/logout.
+  * Can use a passport local authorization
+* Users should be able to add balance to their wallet.
+  * Balance should be stored in the user schema
+* Users should be able to buy/sell shares (transactions need not be stored)
+  * Stocks should be a collection with shares bought for each stock.
+* Users should be able to subscribe to an endpoint that should provide live rates.
+  * If using a socket we could have a pre-save hook on the Stock Schema that emits a socket message to the client.
+  * if using polling we could have a route that accepts a stock id or symbol which will return the live rate
+* Users should have the ability to see their portfolio
+  * A Share should be its own Schema and sub-document within a Stock.
+  * This way the portfolio is just querying the database for all Shares with the users unique id attached to them
 
 ## Test Credentials
 <pre><code>
